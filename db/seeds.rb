@@ -25,5 +25,17 @@ Video.create!([
   youtube_id: 'k7eexbwdSdU',
   uploader: 'Adrian Schdskanalovski',
   duration: 29
+},
+{
+  title: '"Ruby" (DayZ Standalone) #51',
+  youtube_id: 'qC3X2sq4o0k',
+  uploader: 'Silo Entertainment',
+  duration: 1142
+},
+{
+  title: 'Mr. Moon: "Maverick" - DayZ Standalone',
+  youtube_id: 'HY8mOw7-RT8',
+  uploader: 'Mr. Moon',
+  duration: 1665
 }
   ])
