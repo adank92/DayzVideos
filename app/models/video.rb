@@ -1,7 +1,8 @@
 class Video < ActiveRecord::Base
   has_many :video_categories
   has_many :categories, through: :video_categories
-  validates :name, presence: true
+
+  validates :youtube_id, presence: true
 
   before_save :fetch_youtube_info
 
@@ -13,5 +14,6 @@ class Video < ActiveRecord::Base
     self.title = yt_video.title
     self.uploader = yt_video.author.name
     self.duration = yt_video.duration
+    self.img = yt_video.thumbnails[1].url
   end
 end
