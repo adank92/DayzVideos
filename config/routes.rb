@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :videos, :categories
-
+  resources :videos
+  resources :categories, param: :name, only: [:show]
   root 'videos#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -32,6 +32,6 @@ Video.create!([
 },
 {
   youtube_id: 'HY8mOw7-RT8',
-  categories: [roleplay]
+  categories: [roleplay, gunfights]
 }
   ])
