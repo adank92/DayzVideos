@@ -6,7 +6,12 @@
               <span class="highlight-li"><i class="fa fa-fw fa-plus-circle"></i> Submit a video</span>
             <% end %>
         </li>
-        <li class="active">
+        <li>
+            <%= link_to fresh_videos_path do %>
+                <i class="fa fa-fw fa-bolt"></i> Fresh
+            <% end %>
+        </li>
+        <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#categories"><i class="fa fa-fw fa-tags"></i> Categories<i class="fa fa-fw fa-angle-left"></i></a>
             <ul id="categories" class="collapse">
                 <li>

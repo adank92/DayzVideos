@@ -1,10 +1,10 @@
 class Video < ActiveRecord::Base
   has_many :video_categories
   has_many :categories, through: :video_categories
-
   validates :youtube_id, presence: true
-
   before_save :fetch_youtube_info
+
+  scope :fresh, -> { order('created_at DESC') }
 
   protected
 

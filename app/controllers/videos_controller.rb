@@ -61,6 +61,11 @@ class VideosController < ApplicationController
     end
   end
 
+  def fresh
+    @videos = Video.fresh
+    render :index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_video
