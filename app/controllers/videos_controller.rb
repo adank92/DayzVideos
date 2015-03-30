@@ -1,10 +1,13 @@
 class VideosController < ApplicationController
+  before_action :set_params
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.category(params[:cat]).fresh(params[:fresh])
+    @videos = Video.category(params[:cat])
+      .date(params[:date])
+      .duration(params[:duration])
   end
 
   # GET /videos/1
@@ -75,5 +78,9 @@ class VideosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
       params.require(:video).permit(:youtube_id)
+    end
+
+    def set_params
+      @params = params.slice(*[:cat, :date, :duration, :sort_by])
     end
 end

@@ -4,8 +4,9 @@ class Video < ActiveRecord::Base
   validates :youtube_id, presence: true
   before_save :fetch_youtube_info
 
-  scope :fresh, -> (fresh) { order('created_at DESC') if fresh.present? }
   scope :category, -> (category) { joins(:categories).where(categories: { name: category }) if category.present? }
+  scope :date, -> (type) { filter_date(type) if type.present? }
+  scope :duration, -> (duration) { filter_duration(duration) if duration.present? }
 
   protected
 
@@ -16,5 +17,31 @@ class Video < ActiveRecord::Base
     self.uploader = yt_video.author.name
     self.duration = yt_video.duration
     self.img = yt_video.thumbnails[1].url
+  end
+
+  def self.filter_date(type)
+    minimum_date = case type
+      when 'Today'
+        1.day.ago
+      when 'Week'
+        1.week.ago
+      when 'Month'
+        1.month.ago
+      when 'Year'
+        1.year.ago
+      end
+    where('videos.created_at > ?', minimum_date)
+  end
+
+  def self.filter_duration(duration)
+    query = case duration
+      when 'Short'
+        ['videos.duration < ?', 240]
+      when 'Medium'
+        ['videos.duration > ? AND videos.duration < ?', 240, 600]
+      when 'Long'
+        ['videos.duration > ?', 600]
+      end
+    where(*query)
   end
 end
