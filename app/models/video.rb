@@ -4,7 +4,8 @@ class Video < ActiveRecord::Base
   validates :youtube_id, presence: true
   before_save :fetch_youtube_info
 
-  scope :fresh, -> { order('created_at DESC') }
+  scope :fresh, -> (fresh) { order('created_at DESC') if fresh.present? }
+  scope :category, -> (category) { joins(:categories).where(categories: { name: category }) if category.present? }
 
   protected
 

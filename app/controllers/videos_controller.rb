@@ -4,7 +4,7 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
+    @videos = Video.category(params[:cat]).fresh(params[:fresh])
   end
 
   # GET /videos/1
