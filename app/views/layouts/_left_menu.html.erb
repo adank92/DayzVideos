@@ -10,6 +10,9 @@
             <a href="javascript:;" data-toggle="collapse" data-target="#categories"><i class="fa fa-fw fa-tags"></i> Categories<i class="fa fa-fw fa-angle-left"></i></a>
             <ul id="categories" class="collapse">
                 <li class="active">
+                    <%= link_to 'All', root_path(@params.merge(cat: '')) %>
+                </li>
+                <li>
                     <%= link_to 'Gunfights', root_path(@params.merge(cat: 'Gunfights')) %>
                 </li>
                 <li>
@@ -26,6 +29,9 @@
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#date"><i class="fa fa-fw fa-calendar"></i> Date<i class="fa fa-fw fa-angle-left"></i></a>
             <ul id="date" class="collapse">
+                <li>
+                    <%= link_to 'All', root_path(@params.merge(date: '')) %>
+                </li>
                 <li>
                     <%= link_to 'Today', root_path(@params.merge(date: 'Today')) %>
                 </li>
@@ -44,6 +50,9 @@
             <a href="javascript:;" data-toggle="collapse" data-target="#duration"><i class="fa fa-fw fa-clock-o"></i> Duration<i class="fa fa-fw fa-angle-left"></i></a>
             <ul id="duration" class="collapse">
                 <li>
+                    <%= link_to 'All', root_path(@params.merge(duration: '')) %>
+                </li>
+                <li>
                     <%= link_to 'Short (< 4 min)', root_path(@params.merge(duration: 'Short')) %>
                 </li>
                 <li>
@@ -57,6 +66,9 @@
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#sort-by"><i class="fa fa-fw fa-sort"></i> Sort By<i class="fa fa-fw fa-angle-left"></i></a>
             <ul id="sort-by" class="collapse">
+                <li>
+                    <%= link_to 'All', root_path(@params.merge(sort_by: '')) %>
+                </li>
                 <li>
                     <%= link_to 'Date', root_path(@params.merge(sort_by: 'Date')) %>
                 </li>
