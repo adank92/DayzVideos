@@ -2,20 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.highlight-li {
-  color: white;
+.video-container {
+  width: 332px;
+  float: left;
+
+  .video {
+    width: 330px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .video-title {
+    height: 44px;
+    font: 700 1.375em/1.136em "lft-etica","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
 }
 
-body {
-  background: url('/assets/w1.jpeg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-color:#333;
-}
-
-.side-nav li .active {
-  outline: none;
-  background-color: #000 !important;
+.meta {
+  .uploader {
+    font-size: 13px;
+    color: cadetblue;
+  }
+  .time {
+    color: #AAA;
+    font-size: 13px;
+  }
 }

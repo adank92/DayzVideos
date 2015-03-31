@@ -1,0 +1,30 @@
+body {
+  background: url('/assets/w1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color:#333;
+}
+
+.highlight-li {
+  color: white;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.side-nav {
+  background-color: rgba(0, 0, 0, 0.7);
+  li .active {
+    outline: none;
+    background-color: #000 !important;
+  }
+}
+
+#page-wrapper {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0;
+}
