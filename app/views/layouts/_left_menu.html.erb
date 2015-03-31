@@ -7,13 +7,13 @@
             <% end %>
         </li>
         <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#categories"><i class="fa fa-fw fa-tags"></i> Categories<i class="fa fa-fw fa-angle-left"></i></a>
-            <ul id="categories" class="collapse">
+            <a href="javascript:;" data-toggle="collapse" data-target="#cat"><i class="fa fa-fw fa-tags"></i> Categories<i class="fa fa-fw fa-angle-left"></i></a>
+            <ul id="cat" class="collapse">
                 <li class="active">
                     <%= link_to 'All', root_path(@params.merge(cat: '')) %>
                 </li>
                 <li>
-                    <%= link_to 'Gunfights', root_path(@params.merge(cat: 'Gunfights')) %>
+                    <%= link_to 'Gunfights', '#', val: 'Gunfights' %>
                 </li>
                 <li>
                     <%= link_to 'Roleplay', root_path(@params.merge(cat: 'Roleplay')) %>
@@ -67,9 +67,6 @@
             <a href="javascript:;" data-toggle="collapse" data-target="#sort-by"><i class="fa fa-fw fa-sort"></i> Sort By<i class="fa fa-fw fa-angle-left"></i></a>
             <ul id="sort-by" class="collapse">
                 <li>
-                    <%= link_to 'All', root_path(@params.merge(sort_by: '')) %>
-                </li>
-                <li>
                     <%= link_to 'Date', root_path(@params.merge(sort_by: 'Date')) %>
                 </li>
                 <li>
@@ -80,5 +77,10 @@
                 </li>
             </ul>
         </li>
+
+        <form>
+            <input type="hidden" name="cat" value="">
+        </form>
+
     </ul>
 </div>
