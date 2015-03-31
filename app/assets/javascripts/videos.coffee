@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 ready = ->
+  # side-nav functionality
   $('.side-nav ul a').click (e) ->
     e.preventDefault
     # find the param name from the dropdown id
@@ -12,6 +13,16 @@ ready = ->
     $('input[value=""]').attr('name', '')
     # submit form
     $('.side-nav form').submit()
+
+  # load the video when the modal is shown
+  $('#videoModal').on 'show.bs.modal', (e) ->
+    button = $(e.relatedTarget)
+    youtube_url = button.data('youtube-url')
+    $(this).find('iframe').attr('src', youtube_url)
+
+  # unload the video when the modal is hiden
+  $('#videoModal').on 'hide.bs.modal', (e) ->
+    $(this).find('iframe').removeAttr('src')
 
 # execute jquery with turbolinks and regular requests
 $(document).ready ready

@@ -1,6 +1,8 @@
 <div class="video-container">
   <div class="thumbnail video">
-    <%= image_tag video.img %>
+    <a href='#' data-toggle="modal" data-target="#videoModal" data-youtube-url="<%= youtube_url(video.youtube_id) %>">
+      <%= image_tag video.img %>
+    </a>
     <div class="video-title">
      <%= video.title %>
     </div>
