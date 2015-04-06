@@ -78,12 +78,12 @@
             </ul>
         </li>
 
-        <form>
+        <%= form_tag('/', method: :get) do %>
             <input type="hidden" name="cat" value="<%= params[:cat] %>">
             <input type="hidden" name="date" value="<%= params[:date] %>">
             <input type="hidden" name="duration" value="<%= params[:duration] %>">
             <input type="hidden" name="sort-by" value="<%= params[:sort_by] %>">
-        </form>
+        <% end %>
 
     </ul>
 </div>
