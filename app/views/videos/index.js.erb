@@ -1,1 +1,2 @@
-$('.container-fluid .row').html('<%=j render @videos %>');
+<% view =  (@videos.any?) ? @videos : 'no_videos' %>
+$('.container-fluid .row').html("<%=j render view %>");
