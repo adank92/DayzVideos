@@ -8,6 +8,11 @@ class VideosController < ApplicationController
     @videos = Video.category(params[:cat])
       .date(params[:date])
       .duration(params[:duration])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /videos/1

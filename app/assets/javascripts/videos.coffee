@@ -9,8 +9,6 @@ ready = ->
     param_name = $(this).closest('ul').attr('id')
     # set input's value to link's
     $("input[name="+param_name+"]").val($(this).attr('val'))
-    # clear empty params for request, looks nicer
-    $('input[value=""]').attr('name', '')
     # submit form
     $('.side-nav form').submit()
 

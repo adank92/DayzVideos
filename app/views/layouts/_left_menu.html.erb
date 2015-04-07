@@ -78,7 +78,7 @@
             </ul>
         </li>
 
-        <%= form_tag('/', method: :get) do %>
+        <%= form_tag('/', method: :get, remote: true) do %>
             <input type="hidden" name="cat" value="<%= params[:cat] %>">
             <input type="hidden" name="date" value="<%= params[:date] %>">
             <input type="hidden" name="duration" value="<%= params[:duration] %>">
