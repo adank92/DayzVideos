@@ -5,6 +5,10 @@ ready = ->
   # side-nav functionality
   $('.side-nav ul a').click (e) ->
     e.preventDefault
+    # reset active options
+    $(this).closest('ul').find('li').removeClass('active')
+    # highlight active option
+    $(this).closest('li').addClass('active')
     # find the param name from the dropdown id
     param_name = $(this).closest('ul').attr('id')
     # set input's value to link's
