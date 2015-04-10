@@ -27,4 +27,32 @@ class UserTest < ActiveSupport::TestCase
     @user.email = "a" * 244 + "@example.com"
     assert_not @user.valid?
   end
+
+  test "email validation should accept valid addresses" do
+    valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org
+      first.last@foo.jp alice+bob@baz.cn]
+
+    valid_addresses.each do |email|
+      @user.email = email
+      assert @user.valid?, "#{email.inspect} should be valid"
+    end
+  end
+
+  test "email validation should reject invalid addresses" do
+    invalid_addresses = %w[user@example,com userexample.com 
+      user.name@domain.com@domain.com foo@bar_baz.com foo@bar+baz.com]
+
+    invalid_addresses.each do |email|
+      @user.email = email
+      assert_not @user.valid?, "#{email.inspect} shouldn't be valid"
+    end
+  end
+
+  test "email addresses should be unique" do
+    duplicate_user = @user.dup
+    duplicate_user.email = @user.email.upcase
+    @user.save
+    assert_not duplicate_user.valid?
+  end
+
 end
