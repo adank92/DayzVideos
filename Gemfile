@@ -36,6 +36,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'youtube_it'
 # Add font-awesome to the asset pipeline
 gem "font-awesome-rails"
+# Add bcrypt for has_secure_password
+gem 'bcrypt'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
