@@ -38,6 +38,8 @@ gem 'youtube_it'
 gem "font-awesome-rails"
 # Add bcrypt for has_secure_password
 gem 'bcrypt'
+# Use pry insted of rails console
+gem 'pry-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
