@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :videos
+  resources :users
   resources :categories, param: :name, only: [:show]
   root 'videos#index'
 
