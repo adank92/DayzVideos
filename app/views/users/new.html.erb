@@ -1,34 +1,22 @@
-<%= form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
-  <%= render 'shared/error_messages' %>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <h1 class="text-center">Sing Up</h1>
+    <%= form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
+      <%= render 'shared/error_messages' %>
 
-  <div class="form-group">
-    <%= f.label :name, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-3">
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :email, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-3">
-      <%= f.text_field :email, class: 'form-control' %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :password, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-3">
-      <%= f.password_field :password, class: 'form-control' %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :password_confirmation, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-3">
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-    </div>
-  </div>
+        <%= f.label :name, class: 'control-label' %>
+        <%= f.text_field :name, class: 'form-control' %>
 
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-3">
-      <%= f.submit class: 'btn btn-default' %>
-    </div>
+        <%= f.label :email, class: 'control-label' %>
+        <%= f.text_field :email, class: 'form-control' %>
+
+        <%= f.label :password, class: 'control-label' %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :password_confirmation, class: 'control-label' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+        <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
   </div>
-<% end %>
+</div>
