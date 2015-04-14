@@ -28,7 +28,10 @@
 
         <div id="page-wrapper">
             <div class="container-fluid">
-              <%= yield %>
+                <% flash.each do |type,msg| %>
+                  <div class="alert alert-<%= type %>"><%= msg %></div>
+                <% end %>
+                <%= yield %>
             </div>
             <!-- /.container-fluid -->
         </div>
