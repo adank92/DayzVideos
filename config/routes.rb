@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+  # root of the app
+  root 'videos#index'
+
+  # full resources
   resources :videos
   resources :users
-  root 'videos#index'
+  
+  # login - logout resources
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
