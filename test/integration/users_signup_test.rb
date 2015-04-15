@@ -24,5 +24,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                password: "testtest" }
     end
     assert_template :show
+    assert_not flash.nil?
   end
 end

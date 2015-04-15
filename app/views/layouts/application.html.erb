@@ -19,25 +19,25 @@
 
 <body>
 
-    <div id="wrapper">
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <%= render 'layouts/top_nav' %>
-            <%= render 'layouts/left_menu' %>
-        </nav>
+  <div id="wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <%= render 'layouts/top_nav' %>
+          <%= render 'layouts/left_menu' %>
+      </nav>
 
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <% flash.each do |type,msg| %>
-                  <div class="alert alert-<%= type %>"><%= msg %></div>
-                <% end %>
-                <%= yield %>
-            </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
-    </div>
-    <!-- /#wrapper -->
+      <div id="page-wrapper">
+          <div class="container-fluid">
+              <% flash.each do |type,msg| %>
+                <%= content_tag(:div, msg, class: "alert alert-#{type}") %>
+              <% end %>
+              <%= yield %>
+          </div>
+          <!-- /.container-fluid -->
+      </div>
+      <!-- /#page-wrapper -->
+  </div>
+  <!-- /#wrapper -->
 
 </body>
 
