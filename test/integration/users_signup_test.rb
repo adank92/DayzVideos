@@ -10,6 +10,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                password: "foo",
                                password_confirmation: "bar" }
     end
+    assert_select 'div#error_explanation'
+    assert_select 'div#error_explanation li'
     assert_template :new
   end
 
@@ -22,5 +24,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                password: "testtest" }
     end
     assert_template :show
+    assert_not flash.nil?
   end
 end
