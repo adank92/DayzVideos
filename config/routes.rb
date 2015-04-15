@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   resources :videos
   resources :users
-  resources :categories, param: :name, only: [:show]
   root 'videos#index'
-
-  get '/fresh', to: 'videos#fresh', as: :fresh_videos
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
