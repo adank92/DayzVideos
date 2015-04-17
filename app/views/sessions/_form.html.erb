@@ -1,0 +1,9 @@
+<%= form_for(:session, url: login_path, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.label :email, class: 'label-control' %>
+  <%= f.text_field :email, class: 'form-control' %>
+
+  <%= f.label :password, class: 'label-control' %>
+  <%= f.password_field :password, class: 'form-control' %>
+  
+  <%= f.submit 'Log In', class: 'btn btn-primary' %>
+<% end %>
