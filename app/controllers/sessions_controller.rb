@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
 
     else
-      flash[:danger] = "Invalid info"
+      flash.now[:danger] = "Invalid info"
       render :new
     end
   end
