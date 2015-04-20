@@ -59,6 +59,10 @@ input {
   height: auto !important;
 }
 
+.form-horizontal .checkbox {
+  padding-top: 0;
+}
+
 #error_explanation {
   color: $error_color;
   ul {
@@ -71,6 +75,20 @@ input {
     border-color: $error_color;
     color: $error_color;
   }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
 
 /* modals */
