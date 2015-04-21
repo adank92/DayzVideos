@@ -2,9 +2,18 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
         <li>
-            <%= link_to new_video_path, class: 'btn-success highlight-li' do %>
-              <span class="highlight-li"><i class="fa fa-fw fa-plus-circle"></i> Submit a video</span>
+            <% if logged_in? %>
+                <%= link_to new_video_path, class: 'btn-success highlight-li' do %>
+                  <span class="highlight-li"><i class="fa fa-fw fa-plus-circle"></i> Submit a video</span>
+                <% end %>
+            <% else %>
+                <%= link_to login_path, remote: true, :'data-toggle' => 'modal', 
+                                        :'data-target' => '#modal-window',
+                                        class: 'btn-success highlight-li' do %>
+                        <span class="highlight-li"><i class="fa fa-fw fa-plus-circle"></i> Submit a video</span>
+                    <% end %>
             <% end %>
+
         </li>
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#cat"><i class="fa fa-fw fa-tags"></i> Categories<i class="fa fa-fw fa-angle-left"></i></a>
