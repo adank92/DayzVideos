@@ -7,12 +7,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:session][:email])
-    if user && user.authenticate(params[:session][:password])
+    @user = User.find_by_email(params[:session][:email])
+    if @user && @user.authenticate(params[:session][:password])
       flash[:success] = "Welcome back Survivor, have fun!"
-      log_in user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
+      log_in @user
+      params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
+      redirect_to @user
     else
       flash.now[:danger] = "Invalid login info, have the zombies eaten your brain?"
       render :new
