@@ -7,6 +7,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "update profile should fail if wrong information is submited" do
+    log_in_as(@user)
     get edit_user_path(@user)
     assert_template 'users/edit'
     patch user_path(@user), user: { name: '',
@@ -17,6 +18,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "update profile should work with correct information" do
+    log_in_as(@user)
     get edit_user_path(@user)
     assert_template 'users/edit'
     name = 'New Name'
