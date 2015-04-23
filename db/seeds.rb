@@ -1,8 +1,14 @@
 # Fresh data
 Category.destroy_all
-#User.destroy_all
+User.destroy_all
 
 # Users
+User.create!( name: 'Admin', 
+              email: 'admin@dayzvideos.com',
+              password: 'password',
+              password_confirmation: 'password',
+              admin: true )
+
 99.times do |n|
   name = Faker::Name.name
   email = "example#{n}@dayzvideos.com"

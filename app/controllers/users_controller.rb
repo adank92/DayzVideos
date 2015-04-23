@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
+  before_action :admin_rights, only: [:index]
 
   def index
     @users = User.paginate(page: params[:page])
@@ -41,6 +42,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+
+  end
+
   private
 
     def user_params
@@ -60,5 +65,10 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
+    end
+
+    def admin_rights
+      @user = current_user
+      redirect_to(root_path) unless @user.admin?
     end
 end
