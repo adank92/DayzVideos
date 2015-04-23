@@ -1,18 +1,25 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-Video.destroy_all
+# Fresh data
 Category.destroy_all
+#User.destroy_all
 
+# Users
+99.times do |n|
+  name = Faker::Name.name
+  email = "example#{n}@dayzvideos.com"
+  password = 'password'
+  User.create!( name: name, 
+                email: email, 
+                password: password, 
+                password_confirmation: password )
+end
+
+# Categories
 funny = Category.create!( name: 'Funny' )
 gunfights = Category.create!( name: 'Gunfights' )
 showcase = Category.create!( name: 'Showcase' )
 roleplay = Category.create!( name: 'Roleplay' )
 
+# Videos
 Video.create!([
 {
   youtube_id: 'm34lu4UQHak',
