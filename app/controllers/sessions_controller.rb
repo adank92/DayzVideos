@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       flash[:success] = "Welcome back Survivor, have fun!"
       log_in @user
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-      redirect_to @user
+      redirect_back_or @user
     else
       flash.now[:danger] = "Invalid login info, have the zombies eaten your brain?"
       render :new

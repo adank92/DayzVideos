@@ -1,14 +1,7 @@
-<div class="modal-content">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-    <h1 class="modal-title text-center" id="myModalLabel"><i class="fa fa-user"></i> Log In</h1>
-  </div>
-  <div class="modal-body">
-    <%= render 'form' %>
-  </div>
-  <div class="modal-footer">
-    <span>New user? <%= link_to 'Sign up now!', new_user_path, remote: true %></span>
-  </div>
-</div>
+<% modal_title = content_tag 'i', 'Log In', class: 'fa fa-user' %>
+<% modal_footer = content_tag 'span' do %>
+  New user? <%= link_to 'Sign up now!', new_user_path, remote: true %>
+<% end %>
+<% provide(:modal_title, modal_title) %>
+<% provide(:modal_footer, modal_footer) %>
+<%= render 'shared/modal_form' %>
