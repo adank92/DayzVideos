@@ -48,4 +48,12 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_nil cookies['user_id']
     assert_nil cookies['remember_token']
   end
+
+  test 'friendly redirect should work once' do
+    get edit_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to edit_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to user_path(@user)
+  end
 end
