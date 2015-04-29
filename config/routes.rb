@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :videos
   resources :users
   resources :account_activations, only: [:edit]
+  resources :password_resets, except: [:destroy]
   
   # login - logout resources
   get 'login', to: 'sessions#new'
