@@ -1,16 +1,17 @@
-<h1 class="text-center">Forgot Password</h1>
+<h1 class="text-center">Change Password</h1>
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
-    <%= form_for(:password_reset, url: password_reset(params[:id]), method: :patch) do |f| %>
+    <%= form_for(@user, url: password_reset_path(params[:id]), method: :patch) do |f| %>
+      <%= render 'shared/error_messages' %>
       <%= f.label :password, class: 'label-control' %>
-      <%= f.text_field :password, class: 'form-control' %>
+      <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.label :password_confirmation, class: 'label-control' %>
-      <%= f.text_field :password_confirmation, class: 'form-control' %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.hidden_field :email, value: params[:email] %>
+      <%= hidden_field_tag :email, @user.email %>
 
-      <%= f.submit 'Reset password' %>
-    <%= end %>
+      <%= f.submit 'Reset password', class: 'btn btn-primary' %>
+    <% end %>
   </div>
 </div>

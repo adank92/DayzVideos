@@ -31,8 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def activate
-    update_attribute(:activated, true)
-    update_attribute(:activated_at, Time.zone.now)
+    update_columns( activated: true, activated_at: Time.zone.now )
   end
 
   def send_activation_email
@@ -41,8 +40,7 @@ class User < ActiveRecord::Base
 
   def create_reset_token
     self.reset_token = User.new_token
-    update_attribute(:reset_digest, User.digest(reset_token))
-    update_attribute(:reset_sent_at, Time.zone.now)
+    update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
   end
 
   def send_reset_password_email
@@ -53,6 +51,10 @@ class User < ActiveRecord::Base
     digest = send("#{attribute}_digest")
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password? token
+  end
+
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
 
   private
