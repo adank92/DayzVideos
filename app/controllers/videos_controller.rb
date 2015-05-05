@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :set_params
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   # GET /videos
@@ -23,6 +23,7 @@ class VideosController < ApplicationController
   # GET /videos/new
   def new
     @video = Video.new
+    @categories = Category.all
   end
 
   # GET /videos/1/edit
@@ -32,7 +33,7 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
-    @video = Video.new(video_params)
+    @video = current_user.videos.build(video_params)
 
     respond_to do |format|
       if @video.save
@@ -69,11 +70,6 @@ class VideosController < ApplicationController
     end
   end
 
-  def fresh
-    @videos = Video.fresh
-    render :index
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_video
@@ -82,10 +78,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:youtube_id)
-    end
-
-    def set_params
-      @params = params.slice(*[:cat, :date, :duration, :sort_by])
+      params.require(:video).permit(:youtube_id, category_ids: [])
     end
 end

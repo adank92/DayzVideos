@@ -1,9 +1,10 @@
 # Fresh data
 Category.destroy_all
 User.destroy_all
+Video.destroy_all
 
 # Users
-User.create!( name: 'Admin', 
+admin = User.create!( name: 'Admin', 
               email: 'admin@dayzvideos.com',
               password: 'password',
               password_confirmation: 'password',
@@ -33,19 +34,23 @@ roleplay = Category.create!( name: 'Roleplay' )
 Video.create!([
 {
   youtube_id: 'm34lu4UQHak',
-  categories: [funny]
+  categories: [funny],
+  user: admin
 },
 {
   youtube_id: 'pAYNzq6QRa8',
-  categories: [funny]
+  categories: [funny],
+  user: admin
 },
 {
   youtube_id: 'k7eexbwdSdU',
-  categories: [showcase]
+  categories: [showcase],
+  user: admin
 },
 {
   youtube_id: 'qC3X2sq4o0k',
-  categories: [roleplay, funny]
+  categories: [roleplay, funny],
+  user: admin
 },
 {
   youtube_id: 'HY8mOw7-RT8',

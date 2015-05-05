@@ -7,8 +7,8 @@
      <%= video.title %>
     </div>
     <div class="meta">
-      <span class="uploader"><%= video.uploader %></span>
-      <span class="time"><%= distance_of_time_in_words_to_now(video.created_at) + ' ago' %></span>
+      <span class="uploader"><%= video.youtube_uploader %></span>
+      <span class="time"><%= distance_of_time_in_words_to_now(video.uploaded_at) + ' ago' %></span>
     </div>
   </div>
 </div>

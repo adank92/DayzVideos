@@ -49,4 +49,8 @@ module SessionsHelper
   def logged_in?
     !current_user.nil?
   end
+
+  def login_path_or(other_path)
+    (logged_in?) ? other_path : login_path
+  end
 end
