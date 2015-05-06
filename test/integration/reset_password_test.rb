@@ -3,7 +3,7 @@ require 'test_helper'
 class ResetPasswordTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user = users(:one)
+    @user = users(:bob)
     ActionMailer::Base.deliveries.clear
   end
 

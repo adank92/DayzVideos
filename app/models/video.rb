@@ -3,8 +3,17 @@ class Video < ActiveRecord::Base
   has_many :video_categories
   has_many :categories, through: :video_categories
   before_save :fetch_youtube_info
-  validates :youtube_id, presence: true, uniqueness: :true
 
+  validates :youtube_id, presence: true, uniqueness: :true
+  validates :user, presence: true
+  validates :categories, presence: true
+  validates :title, presence: true
+  validates :duration, presence: true
+  validates :img, presence: true
+  validates :youtube_uploader, presence: true
+  validates :uploaded_at, presence: true
+
+  default_scope -> { order(uploaded_at: :desc) }
   scope :category, -> (category) { joins(:categories).where(categories: { name: category }) if category.present? }
   scope :date, -> (type) { filter_date(type) if type.present? }
   scope :duration, -> (duration) { filter_duration(duration) if duration.present? }

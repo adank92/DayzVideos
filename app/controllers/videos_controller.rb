@@ -6,8 +6,8 @@ class VideosController < ApplicationController
   # GET /videos.json
   def index
     @videos = Video.category(params[:cat])
-      .date(params[:date])
-      .duration(params[:duration])
+                   .date(params[:date])
+                   .duration(params[:duration])
 
     respond_to do |format|
       format.html

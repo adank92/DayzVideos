@@ -1,0 +1,7 @@
+one_with_roleplay:
+  video: one
+  category: roleplay
+
+two_with_roleplay_and_gunfights:
+  video: two
+  category: roleplay, gunfights
