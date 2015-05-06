@@ -1,5 +1,7 @@
 one:
   youtube_id: m34lu4UQHak
+  uploaded_at: <%= 3.days.ago %>
 
 two:
   youtube_id: pAYNzq6QRa8
+  uploaded_at: <%= 4.days.ago %>

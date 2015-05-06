@@ -28,6 +28,7 @@ class VideosController < ApplicationController
 
   # GET /videos/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /videos
@@ -40,6 +41,7 @@ class VideosController < ApplicationController
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
       else
+        binding.pry
         format.html { render :new }
         format.json { render json: @video.errors, status: :unprocessable_entity }
       end
