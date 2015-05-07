@@ -13,5 +13,14 @@ two:
   duration: 609
   img: http://i.ytimg.com/vi/pAYNzq6QRa8/mqdefault.jpg
   youtube_uploader: BestBudGaming
-  uploaded_at: <%= 4.days.ago %>
+  uploaded_at: <%= 32.days.ago %>
+  user: john
+
+three:
+  youtube_id: lLTqGJmyiWA
+  title: Stream Highlight "Zombie Horde Fail!"
+  duration: 250
+  img: http://i.ytimg.com/vi/pAYNzq6QRa8/mqdefault.jpg
+  youtube_uploader: Mof Holly
+  uploaded_at: <%= Time.zone.now %>
   user: john

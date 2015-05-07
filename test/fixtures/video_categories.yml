@@ -2,6 +2,10 @@ one_with_roleplay:
   video: one
   category: roleplay
 
-two_with_roleplay_and_gunfights:
+two_with_roleplay:
   video: two
-  category: roleplay, gunfights
+  category: roleplay
+
+three_with_gunfights:
+  video: three
+  category: gunfights
