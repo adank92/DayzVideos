@@ -6,11 +6,6 @@ class Video < ActiveRecord::Base
   validates :youtube_id, presence: true, uniqueness: :true
   validates :user, presence: true
   validates :categories, presence: true
-  validates :title, presence: true
-  validates :duration, presence: true
-  validates :img, presence: true
-  validates :youtube_uploader, presence: true
-  validates :uploaded_at, presence: true
 
   default_scope -> { order(uploaded_at: :desc) }
   scope :category, -> (category) { joins(:categories).where(categories: { name: category }) if category.present? }

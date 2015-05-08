@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
     <%= form_for(@user, url: password_reset_path(params[:id]), method: :patch) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :password, class: 'label-control' %>
       <%= f.password_field :password, class: 'form-control' %>
 

@@ -29,26 +29,6 @@ class VideoTest < ActiveSupport::TestCase
     assert_not @video.valid?
   end
 
-  test ":title should be present" do
-    @video.title = ''
-    assert_not @video.valid?
-  end
-
-  test ":duration should be present" do
-    @video.duration = ''
-    assert_not @video.valid?
-  end
-
-  test ":img should be present" do
-    @video.img = ''
-    assert_not @video.valid?
-  end
-
-  test ":youtube_uploader should be present" do
-    @video.youtube_uploader = ''
-    assert_not @video.valid?
-  end
-
   test "should order by :uploaded_at" do
     assert_equal Video.all, [videos(:three), videos(:one), videos(:two)]
   end
@@ -69,5 +49,15 @@ class VideoTest < ActiveSupport::TestCase
     assert_equal Video.duration('Short'), [videos(:one)]
     assert_equal Video.duration('Medium'), [videos(:three)]
     assert_equal Video.duration('Long'), [videos(:two)]
+  end
+
+  test "should fetch proper info from yt" do
+    video = Video.new(youtube_id: 'HJpaqOFjJME')
+    video.fetch_youtube_info
+    assert_equal 'The Misfits - Descending Angel', video.title
+    assert_equal 'Teemu Lönnblad', video.youtube_uploader
+    assert_equal 231, video.duration
+    assert_equal 'https://i.ytimg.com/vi/HJpaqOFjJME/mqdefault.jpg', video.img
+    assert_equal '2009-11-02 17:44:34 UTC', video.uploaded_at.to_s
   end
 end
