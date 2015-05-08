@@ -35,13 +35,13 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = current_user.videos.build(video_params)
-
+    @video.fetch_youtube_info
     respond_to do |format|
       if @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
       else
-        binding.pry
+        @categories = Category.all
         format.html { render :new }
         format.json { render json: @video.errors, status: :unprocessable_entity }
       end
