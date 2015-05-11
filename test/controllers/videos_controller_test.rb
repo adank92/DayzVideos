@@ -5,6 +5,7 @@ class VideosControllerTest < ActionController::TestCase
     @youtube_id = 'HJpaqOFjJME'
     @user = users(:bob)
     @video = videos(:one)
+    @other_video = videos(:two)
     @category = categories(:roleplay)
   end
 
@@ -53,6 +54,12 @@ class VideosControllerTest < ActionController::TestCase
     assert_redirected_to login_path
   end
 
+  test "should redirect :edit when wrong user" do
+    log_in_as(@user)
+    get :edit, id: @other_video
+    assert_redirected_to root_path
+  end
+
   test "should get :edit when logged in" do
     log_in_as(@user)
     get :edit, id: @video
@@ -64,6 +71,12 @@ class VideosControllerTest < ActionController::TestCase
     assert_not flash[:danger].empty?
     assert_redirected_to login_path
   end
+
+  test "should redirect :update when wrong user" do
+    log_in_as(@user)
+    patch :update, id: @other_video, video: { youtube_id: @other_video.youtube_id, category_ids: [@category.id] }
+    assert_redirected_to root_path
+  end 
 
   test "should :update video when logged in" do
     log_in_as(@user)
@@ -77,6 +90,14 @@ class VideosControllerTest < ActionController::TestCase
     end
     assert_not flash[:danger].empty?
     assert_redirected_to login_path
+  end
+
+  test "should redirect :destroy when wrong user" do
+    log_in_as(@user)
+    assert_no_difference('Video.count') do
+      delete :destroy, id: @other_video
+    end
+    assert_redirected_to root_path
   end
 
   test "should :destroy video when logged in" do

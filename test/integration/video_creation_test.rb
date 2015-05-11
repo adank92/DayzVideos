@@ -4,6 +4,7 @@ class VideoCreationTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:bob)
+    @video = videos(:one)
     @categories = Category.all
   end
 
@@ -28,5 +29,21 @@ class VideoCreationTest < ActionDispatch::IntegrationTest
     end
     video = assigns(:video)
     assert_redirected_to video
+  end
+
+  test "video update" do
+    log_in_as(@user)
+    youtube_id = 'asdfasdf'
+    category_ids = [@categories.first.id]
+    get edit_video_path(@video)
+    assert_template 'videos/edit'
+    # the youtube_id field should be disabled
+    assert_select 'input[disabled=disabled]#video_youtube_id'
+    patch video_path(@video), video: { youtube_id: youtube_id, category_ids: category_ids }
+    @video.reload
+    # the update method should not update youtube_id
+    assert_not_equal @video.youtube_id, youtube_id
+    # categories should update
+    assert_equal @video.category_ids, category_ids
   end
 end

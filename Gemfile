@@ -40,6 +40,8 @@ gem "font-awesome-rails"
 gem 'bcrypt'
 # Use pry insted of rails console
 gem 'pry-rails'
+gem 'pry-nav'
+
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 

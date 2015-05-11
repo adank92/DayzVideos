@@ -1,6 +1,8 @@
 class VideosController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
 
   # GET /videos
   # GET /videos.json
@@ -52,7 +54,7 @@ class VideosController < ApplicationController
   # PATCH/PUT /videos/1.json
   def update
     respond_to do |format|
-      if @video.update(video_params)
+      if @video.update(video_params_update)
         format.html { redirect_to @video, notice: 'Video was successfully updated.' }
         format.json { render :show, status: :ok, location: @video }
       else
@@ -73,6 +75,10 @@ class VideosController < ApplicationController
   end
 
   private
+    def correct_user
+      redirect_to root_path unless @video.user == current_user
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_video
       @video = Video.find(params[:id])
@@ -81,5 +87,9 @@ class VideosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
       params.require(:video).permit(:youtube_id, category_ids: [])
+    end
+
+    def video_params_update
+      params.require(:video).permit(category_ids: [])
     end
 end
