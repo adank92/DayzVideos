@@ -23,5 +23,10 @@ class VideoCreationTest < ActionDispatch::IntegrationTest
     assert_template 'videos/new'
     assert_select 'div#error_explanation'
     assert_select 'div#error_explanation li'
+    assert_difference 'Video.count', 1  do
+      post videos_path, video: { youtube_id: 'HJpaqOFjJME', category_ids: [@categories.first.id]}
+    end
+    video = assigns(:video)
+    assert_redirected_to video
   end
 end

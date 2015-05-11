@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class VideosControllerTest < ActionController::TestCase
-  setup do
+  def setup
     @youtube_id = 'HJpaqOFjJME'
     @user = users(:bob)
     @video = videos(:one)
