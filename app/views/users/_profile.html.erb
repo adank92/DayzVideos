@@ -1,3 +1,5 @@
-<%= gravatar_for @user, size: 120 %>
-<%= "#{@user.name}, #{@user.email}" %>
-<%= link_to 'Edit', edit_user_path(@user) %>
+<% content_for :modal_body do %>
+  <%= gravatar_for @user, size: 120 %>
+  <%= "#{@user.name}, #{@user.email}" %>
+<% end %>
+<%= render 'shared/modal_form' %>

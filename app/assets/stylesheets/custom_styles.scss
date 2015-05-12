@@ -37,6 +37,14 @@ body {
   padding-left: 225px;
 }
 
+.vertical-center {
+  min-height: 40%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 40vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
 /* side-nav */
 
 .side-nav {

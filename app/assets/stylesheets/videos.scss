@@ -6,32 +6,34 @@
 }
 
 .video {
-  width: 332px;
-  float: left;
+  width: 330px;
+}
 
-  .thumbnail {
-    width: 330px;
-    height: 250px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .title {
-    height: 44px;
-    font: 700 1.375em/1.136em "lft-etica","Helvetica Neue",Helvetica,Arial,sans-serif;
-  }
-
-  .meta {
-    .uploader {
-      font-size: 13px;
-      color: cadetblue;
-    }
-    
-    .time {
-      color: #AAA;
-      font-size: 13px;
-    }
+.thumbnail {
+  width: 330px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  img {
+    width: 100%;
   }
 }
 
+.title {
+  height: 44px;
+  font: 700 1.375em/1.136em "lft-etica","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
 
+.meta {
+  position: absolute;
+  bottom: 5px;
+  .uploader {
+    font-size: 13px;
+    color: cadetblue;
+  }
+  
+  .time {
+    color: #AAA;
+    font-size: 13px;
+  }
+}

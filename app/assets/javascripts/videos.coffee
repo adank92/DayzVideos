@@ -32,7 +32,7 @@ ready = ->
         selector: '.video',
         animate: true,
         cellW: 332,
-        cellH: 250,
+        cellH: 260,
         onResize: ->
           wall.refresh();
       });
