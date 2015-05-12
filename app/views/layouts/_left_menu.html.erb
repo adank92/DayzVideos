@@ -1,10 +1,10 @@
 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 <div class="collapse navbar-collapse navbar-ex1-collapse">
-  <ul class="nav navbar-nav side-nav">
+  <ul class="nav navbar-nav side-nav side-scrollable">
     <li>
       <%= link_to login_path_or(new_video_path), remote: true, :'data-toggle' => 'modal',
-                                                                  :'data-target' => '#modal-window',
-                                                                  class: 'btn-success highlight-li' do %>
+                                                               :'data-target' => '#modal-window',
+                                                               class: 'btn-success highlight-li' do %>
         <span class="highlight-li"><i class="fa fa-fw fa-plus-circle"></i> Submit a video</span>
       <% end %>
     </li>

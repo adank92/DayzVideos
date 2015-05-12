@@ -26,6 +26,19 @@ ready = ->
   $('#videoModal').on 'hide.bs.modal', (e) ->
     $(this).find('iframe').removeAttr('src')
 
+  # freewall grid implementarion
+  wall = new freewall('#videos-container')
+  wall.reset({
+        selector: '.video',
+        animate: true,
+        cellW: 332,
+        cellH: 250,
+        onResize: ->
+          wall.refresh();
+      });
+  wall.fitWidth()
+  $(window).trigger("resize")
+
 # execute jquery with turbolinks and regular requests
 $(document).ready ready
 $(document).on 'page:load', ready
