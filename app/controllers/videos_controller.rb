@@ -37,7 +37,6 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = current_user.videos.build(video_params)
-    @video.fetch_youtube_info if @video.valid?
     respond_to do |format|
       if @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
