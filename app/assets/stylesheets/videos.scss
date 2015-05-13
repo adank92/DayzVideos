@@ -10,6 +10,7 @@
 }
 
 .thumbnail {
+  float: left;
   width: 330px;
   height: 250px;
   margin-left: auto;
@@ -26,7 +27,8 @@
 
 .meta {
   position: absolute;
-  bottom: 5px;
+  bottom: 0px;
+  width: 320px;
   .uploader {
     font-size: 13px;
     color: cadetblue;
