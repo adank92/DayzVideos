@@ -1,0 +1,22 @@
+<% content_for :modal_body do %>
+  <p>
+    <strong>Title:</strong>
+    <%= @video.title %>
+  </p>
+
+  <p>
+    <strong>Youtube Id:</strong>
+    <%= @video.youtube_id %>
+  </p>
+
+  <p>
+    <strong>Uploader:</strong>
+    <%= @video.youtube_uploader %>
+  </p>
+
+  <p>
+    <strong>Duration:</strong>
+    <%= @video.duration %>
+  </p>
+<% end %>
+<%= render 'shared/modal_form' %>

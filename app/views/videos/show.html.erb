@@ -1,24 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @video.title %>
-</p>
-
-<p>
-  <strong>Youtube Id:</strong>
-  <%= @video.youtube_id %>
-</p>
-
-<p>
-  <strong>Uploader:</strong>
-  <%= @video.youtube_uploader %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @video.duration %>
-</p>
-
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+<% modal_title = content_tag 'i', ' Video info', class: 'fa fa-youtube' %>
+<% provide(:modal_title, modal_title) %>
+<%= render 'shared/page_modal', partial: 'modal_show' %>
