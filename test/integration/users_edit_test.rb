@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersEditTest < ActionDispatch::IntegrationTest
   
   def setup
-    @user = users(:one)
+    @user = users(:bob)
   end
 
   test "update profile should fail if wrong information is submited" do

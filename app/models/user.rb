@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :reset_token
+  has_many :videos
   before_save :downcase_email
   before_create :create_activation_token
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -59,12 +60,12 @@ class User < ActiveRecord::Base
 
   private
 
-      def downcase_email
-        self.email.downcase!
-      end
+    def downcase_email
+      self.email.downcase!
+    end
 
-      def create_activation_token
-        self.activation_token = User.new_token
-        self.activation_digest = User.digest(activation_token)
-      end
+    def create_activation_token
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest(activation_token)
+    end
 end

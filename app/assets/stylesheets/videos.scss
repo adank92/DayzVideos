@@ -1,29 +1,39 @@
 // Place all the styles related to the Videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#videos-container {
+  margin: 0 4px;
+}
 
-.video-container {
-  width: 332px;
+.video {
+  width: 330px;
+}
+
+.thumbnail {
   float: left;
-
-  .video {
-    width: 330px;
-    height: 250px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .video-title {
-    height: 44px;
-    font: 700 1.375em/1.136em "lft-etica","Helvetica Neue",Helvetica,Arial,sans-serif;
+  width: 330px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  img {
+    width: 100%;
   }
 }
 
+.title {
+  height: 44px;
+  font: 700 1.375em/1.136em "lft-etica","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 .meta {
+  position: absolute;
+  bottom: 0px;
+  width: 320px;
   .uploader {
     font-size: 13px;
     color: cadetblue;
   }
+  
   .time {
     color: #AAA;
     font-size: 13px;

@@ -1,2 +1,3 @@
-<% view =  (@videos.any?) ? @videos : 'no_videos' %>
-$('.container-fluid .row').html("<%=j render view %>");
+<% view = (@videos.any?) ? @videos : 'no_videos' %>
+$('#videos-container').html("<%=j render view %>");
+$(window).trigger("resize");

@@ -1,5 +1,26 @@
 one:
   youtube_id: m34lu4UQHak
+  title: Dayz Standalone - Thug life
+  duration: 72
+  img: http://i.ytimg.com/vi/m34lu4UQHak/mqdefault.jpg
+  youtube_uploader: IALT OFFICIAL
+  uploaded_at: <%= 3.days.ago %>
+  user: bob
 
 two:
   youtube_id: pAYNzq6QRa8
+  title: DayZ - Scaring People Standalone Edition
+  duration: 609
+  img: http://i.ytimg.com/vi/pAYNzq6QRa8/mqdefault.jpg
+  youtube_uploader: BestBudGaming
+  uploaded_at: <%= 32.days.ago %>
+  user: john
+
+three:
+  youtube_id: lLTqGJmyiWA
+  title: Stream Highlight "Zombie Horde Fail!"
+  duration: 250
+  img: http://i.ytimg.com/vi/pAYNzq6QRa8/mqdefault.jpg
+  youtube_uploader: Mof Holly
+  uploaded_at: <%= Time.zone.now %>
+  user: john

@@ -1,9 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+one_with_roleplay:
+  video: one
+  category: roleplay
 
-one:
-  video_id: 
-  category_id: 
+two_with_roleplay:
+  video: two
+  category: roleplay
 
-two:
-  video_id: 
-  category_id: 
+three_with_gunfights:
+  video: three
+  category: gunfights

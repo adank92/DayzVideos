@@ -1,3 +1,2 @@
-<%= gravatar_for @user, size: 120 %>
-<%= "#{@user.name}, #{@user.email}" %>
-<%= link_to 'Edit', edit_user_path(@user) %>
+<% provide(:close_button_display, 'none') %>
+<%= render 'shared/page_modal', partial: 'profile' %>

@@ -1,0 +1,9 @@
+<% unless action_name == 'new' %>
+  <% content_for :sidebar do render 'layouts/left_menu' end %>
+  <% content_for :content do %>
+    <div id='videos-wrapper'>
+      <%= yield %>
+    </div>
+  <% end %>
+<% end %>
+<%= render template: 'layouts/application' %>

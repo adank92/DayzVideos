@@ -1,5 +1,2 @@
-<h1>Submit a Video</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', videos_path %>
+<% provide(:close_button_display, 'none') %>
+<%= render 'shared/page_modal', partial: 'modal' %>

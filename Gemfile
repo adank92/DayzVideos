@@ -32,14 +32,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use YouTube_it as YT client
-gem 'youtube_it'
+# Use YT client
+gem 'yt'
 # Add font-awesome to the asset pipeline
 gem "font-awesome-rails"
 # Add bcrypt for has_secure_password
 gem 'bcrypt'
 # Use pry insted of rails console
 gem 'pry-rails'
+gem 'pry-nav'
+
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 

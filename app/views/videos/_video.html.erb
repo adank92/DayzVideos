@@ -1,14 +1,13 @@
-<div class="video-container">
-  <div class="thumbnail video">
+  <div class="video thumbnail">
     <a href='#' data-toggle="modal" data-target="#videoModal" data-youtube-url="<%= youtube_url(video.youtube_id) %>">
       <%= image_tag video.img %>
     </a>
-    <div class="video-title">
-     <%= video.title %>
-    </div>
     <div class="meta">
-      <span class="uploader"><%= video.uploader %></span>
-      <span class="time"><%= distance_of_time_in_words_to_now(video.created_at) + ' ago' %></span>
+      <div class="title">
+       <%= video.title %>
+      </div>
+    
+      <span class="uploader"><%= video.youtube_uploader %></span>
+      <span class="time"><%= distance_of_time_in_words_to_now(video.uploaded_at) + ' ago' %></span>
     </div>
   </div>
-</div>
