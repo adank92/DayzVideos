@@ -1,7 +1,0 @@
-<% modal_title = content_tag 'i', 'Log In', class: 'fa fa-user' %>
-<% modal_footer = content_tag 'span' do %>
-  New user? <%= link_to 'Sign up now!', new_user_path, remote: true %>
-<% end %>
-<% provide(:modal_title, modal_title) %>
-<% provide(:modal_footer, modal_footer) %>
-<%= render 'shared/modal_form' %>

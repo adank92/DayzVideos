@@ -5,17 +5,17 @@
         <span aria-hidden="true">&times;</span>
     </button>
     <h1 class="modal-title text-center" id="myModalLabel">
-      <%= yield :modal_title %>
+      <%= yield :box_title %>
     </h1>
   </div>
   <div class="modal-body">
-    <% if content_for?(:modal_body) %>
-      <%= yield(:modal_body) %>
+    <% if content_for?(:box_body) %>
+      <%= yield(:box_body) %>
     <% else %> 
       <%= render 'form'  %>
     <% end %>
   </div>
   <div class="modal-footer">
-    <%= yield :modal_footer %>
+    <%= yield :box_footer %>
   </div>
 </div>
