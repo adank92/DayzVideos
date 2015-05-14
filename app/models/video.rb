@@ -6,22 +6,27 @@ class Video < ActiveRecord::Base
   validates :youtube_id, presence: true, uniqueness: :true
   validates :user, presence: true
   validates :categories, presence: true
+  
+  before_create :fetch_youtube_info
 
   default_scope -> { order(uploaded_at: :desc) }
   scope :category, -> (category) { joins(:categories).where(categories: { name: category }) if category.present? }
   scope :date, -> (type) { filter_date(type) if type.present? }
   scope :duration, -> (duration) { filter_duration(duration) if duration.present? }
 
-  def fetch_youtube_info
-    yt_video = Yt::Video.new(id: youtube_id)
-    self.title = yt_video.title
-    self.youtube_uploader = yt_video.channel_title
-    self.duration = yt_video.duration
-    self.img = yt_video.thumbnail_url(:medium)
-    self.uploaded_at = yt_video.published_at
-  end
-
   protected
+
+    def fetch_youtube_info
+      yt_video = Yt::Video.new(id: youtube_id)
+      self.title = yt_video.title
+      self.youtube_uploader = yt_video.channel_title
+      self.duration = yt_video.duration
+      self.img = yt_video.thumbnail_url(:medium)
+      self.uploaded_at = yt_video.published_at
+    rescue Yt::Errors::RequestError => e
+      errors[:base] << "There was an issue trying to connect to youtube"
+      false
+    end
 
     def self.filter_date(type)
       minimum_date = case type

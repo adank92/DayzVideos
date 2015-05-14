@@ -53,7 +53,7 @@ class VideoTest < ActiveSupport::TestCase
 
   test "should fetch proper info from yt" do
     video = Video.new(youtube_id: 'HJpaqOFjJME')
-    video.fetch_youtube_info
+    video.send(:fetch_youtube_info)
     assert_equal 'The Misfits - Descending Angel', video.title
     assert_equal 'Teemu Lönnblad', video.youtube_uploader
     assert_equal 231, video.duration
