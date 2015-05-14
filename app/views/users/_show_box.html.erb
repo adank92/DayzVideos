@@ -1,0 +1,8 @@
+<% content_for :box_title do %>
+  <%= content_tag 'i', ' Profile', class: 'fa fa-user' %>
+<% end %>
+<% content_for :box_body do %>
+  <%= gravatar_for @user, size: 120 %>
+  <%= "#{@user.name}, #{@user.email}" %>
+<% end %>
+<%= render 'shared/content_box' %>
