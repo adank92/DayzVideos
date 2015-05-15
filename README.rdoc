@@ -1,28 +1,4 @@
-== README
+== DayZVideos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+If you are like me you love watching DayZ videos, but the problem is that we don't have a way to filter them based on categories, duration, views, votes, etc.
+DayZVideos comes to solve this problem, enabling visitors to filter videos and users to submit new videos to the app
