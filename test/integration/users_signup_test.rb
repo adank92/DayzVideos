@@ -47,5 +47,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'users/show'
     assert is_logged_in?
+    # can't register again
+    get new_user_path
+    assert_not flash[:danger].empty?
+    assert_redirected_to root_path
   end
 end

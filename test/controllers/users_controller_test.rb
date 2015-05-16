@@ -59,7 +59,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should not allow to update admin boolean" do
-    log_in_as(@other_user)
+    log_in_as @other_user
     assert_not @other_user.admin?
     patch :update, id: @other_user, user: { name: 'Updated name',
                                             email: 'updated@email.com',
@@ -67,5 +67,12 @@ class UsersControllerTest < ActionController::TestCase
                                             password_confirmation: 'password',
                                             admin: true }
     assert_not @other_user.admin?
+  end
+
+  test "should redirect new when logged in" do
+    log_in_as @user
+    get :new
+    assert_not flash.empty?
+    assert_redirected_to root_path
   end
 end

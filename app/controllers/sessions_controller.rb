@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :not_logged_in_user, only: [:new, :create]
+
   def new
     respond_to do |format|
       format.html # default
