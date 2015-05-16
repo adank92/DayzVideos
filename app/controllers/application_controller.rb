@@ -11,4 +11,11 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+
+  def not_logged_in_user
+    if logged_in?
+      flash[:danger] = 'Already logged in'
+      redirect_to root_path
+    end
+  end
 end
