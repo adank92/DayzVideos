@@ -18,6 +18,12 @@
 
 <body>
 
+  <div id="alerts">
+    <% flash.each do |type,msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-#{type}") %>
+    <% end %>
+  </div>
+
   <div id="wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -26,9 +32,6 @@
     </nav>
 
     <div id="page-wrapper">
-      <% flash.each do |type,msg| %>
-        <%= content_tag(:div, msg, class: "alert alert-#{type}") %>
-      <% end %>
       <%= content_for?(:content) ? yield(:content) : yield %>
     </div>
     <!-- /#page-wrapper -->
