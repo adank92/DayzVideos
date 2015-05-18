@@ -3,7 +3,7 @@
 <% end %>
 <% content_for :box_footer do %>
   <%= content_tag 'span' do %>
-  New user? <%= link_to 'Sign up now!', new_user_path, remote: true %>
+  New user? <%= link_to 'Sign up now!', new_user_path, remote: is_a_modal? %>
   <% end %>
 <% end %>
 <%= render 'shared/content_box' %>
