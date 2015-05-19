@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, except: [:destroy]
   
+  patch 'videos/:id/activate', to: 'videos#activate'
   # login - logout resources
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

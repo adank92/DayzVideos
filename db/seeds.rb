@@ -16,12 +16,12 @@ admin = User.create!( name: 'Admin',
   name = Faker::Name.name
   email = "example#{n}@dayzvideos.com"
   password = 'password'
-  #User.create!( name: name, 
-  #              email: email, 
-  #              password: password, 
-  #              password_confirmation: password,
-  #              activated: true,
-  #              activated_at: Time.zone.now  )
+  User.create!( name: name, 
+                email: email, 
+                password: password, 
+                password_confirmation: password,
+                activated: true,
+                activated_at: Time.zone.now  )
 end
 
 # Categories
@@ -61,6 +61,5 @@ videos = [
 
 videos.each do |v|
   video = Video.new(v)
-  video.fetch_youtube_info
   video.save!
 end
