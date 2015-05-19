@@ -1,0 +1,9 @@
+<% content_for :box_title do %>
+  Inactive Videos
+<% end %>
+<% content_for :box_body do %>
+  <ul class='users'>
+    <%= render partial: 'video', collection: @videos %>
+  </ul>
+<% end %>
+<%= render 'shared/content_box' %>

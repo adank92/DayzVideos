@@ -2,8 +2,6 @@ class VideosController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy, :activate]
   before_action :set_video, only: [:show, :edit, :update, :destroy, :activate]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :admin_user, only: [:activate]
-
 
   # GET /videos
   # GET /videos.json
@@ -76,10 +74,6 @@ class VideosController < ApplicationController
       format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def activate
-    
   end
 
   private
