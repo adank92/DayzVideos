@@ -6,20 +6,19 @@
     <strong>Title:</strong>
     <%= @video.title %>
   </p>
-
   <p>
     <strong>Youtube Id:</strong>
     <%= @video.youtube_id %>
   </p>
-
   <p>
-    <strong>Uploader:</strong>
-    <%= @video.youtube_uploader %>
+    <strong>Categories:</strong>
+    <%= @video.categories.map(&:name).join(', ') %>
   </p>
-
   <p>
-    <strong>Duration:</strong>
-    <%= @video.duration %>
+    <strong class="text-info"><%= "An admin will review this video and activate it" unless @video.active? %></strong>
   </p>
+<% end %>
+<% content_for :box_footer do %>
+  <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
 <% end %>
 <%= render 'shared/content_box' %>

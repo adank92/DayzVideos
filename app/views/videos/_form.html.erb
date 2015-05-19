@@ -1,4 +1,4 @@
-<%= form_for(@video, remote: true, html: { class: 'form-horizontal' }) do |f| %>
+<%= form_for(@video, remote: is_a_modal?, html: { class: 'form-horizontal' }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <%= f.label :youtube_id, 'Youtube ID', class: 'control-label' %>
   <%= f.text_field :youtube_id, placeholder: "ID", class: 'form-control',

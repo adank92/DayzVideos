@@ -1,0 +1,11 @@
+<% content_for :box_title do %>
+  All users
+<% end %>
+<% content_for :box_body do %>
+  <%= will_paginate %>
+  <ul class="users">
+    <%= render @users %>
+  </ul>
+  <%= will_paginate %>
+<% end %>
+<%= render 'shared/content_box' %>
