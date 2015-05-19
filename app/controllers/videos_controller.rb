@@ -12,7 +12,7 @@ class VideosController < ApplicationController
                    .duration(params[:duration])
 
     respond_to do |format|
-      format.html
+      format.html { render layout: 'videos_sidebar' }
       format.js
     end
   end
