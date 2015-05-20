@@ -5,6 +5,7 @@ bob:
   admin: true
   activated: true
   activated_at: <%= Time.zone.now %>
+  trust_points: 0
 
 john:
   name: John Raz
@@ -12,6 +13,7 @@ john:
   password_digest: <%= User.digest("password") %>
   activated: true
   activated_at: <%= Time.zone.now %>
+  trust_points: 60
 
 <% 30.times do |n| %>
 user_<%= n %>:
@@ -20,4 +22,5 @@ user_<%= n %>:
   password_digest: <%= User.digest("password") %>
   activated: true
   activated_at: <%= Time.zone.now %>
+  trust_points: 0
 <% end %>

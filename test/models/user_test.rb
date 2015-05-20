@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
@@ -72,4 +69,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?(:remember, '')
   end
 
+  test "should increment trust points" do
+    @user.add_video_points
+    assert_equal @user.trust_points, 10
+  end
+
+  test "should decrease trust points" do
+    @user.remove_video_points
+    assert_equal @user.trust_points, -10
+  end
 end

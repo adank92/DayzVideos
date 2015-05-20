@@ -51,6 +51,14 @@ class VideoTest < ActiveSupport::TestCase
     assert_equal Video.duration('Long'), [videos(:two)]
   end
 
+  test "should filter by inactive" do
+    assert_equal Video.inactive, [videos(:three), videos(:one)]
+  end
+
+  test "should filter by active" do
+    assert_equal Video.active, [videos(:two)]
+  end
+
   test "should fetch proper info from yt" do
     video = Video.new(youtube_id: 'HJpaqOFjJME')
     video.send(:fetch_youtube_info)
@@ -59,5 +67,11 @@ class VideoTest < ActiveSupport::TestCase
     assert_equal 231, video.duration
     assert_equal 'https://i.ytimg.com/vi/HJpaqOFjJME/mqdefault.jpg', video.img
     assert_equal '2009-11-02 17:44:34 UTC', video.uploaded_at.to_s
+  end
+
+  test "should activate video" do
+    @video.activate
+    assert @video.active?
+    assert_equal @video.user.trust_points, 10
   end
 end

@@ -6,6 +6,7 @@ one:
   youtube_uploader: IALT OFFICIAL
   uploaded_at: <%= 3.days.ago %>
   user: bob
+  active: false
 
 two:
   youtube_id: pAYNzq6QRa8
@@ -15,6 +16,7 @@ two:
   youtube_uploader: BestBudGaming
   uploaded_at: <%= 32.days.ago %>
   user: john
+  active: true
 
 three:
   youtube_id: lLTqGJmyiWA
@@ -24,3 +26,4 @@ three:
   youtube_uploader: Mof Holly
   uploaded_at: <%= Time.zone.now %>
   user: john
+  active: false
