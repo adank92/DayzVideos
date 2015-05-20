@@ -3,7 +3,7 @@ class VideoActivationsController < ApplicationController
   before_action :admin_user
 
   def index
-    @videos = Video.inactive
+    @videos = Video.inactive.paginate(page: params[:page], per_page: 10)
   end
 
   def edit

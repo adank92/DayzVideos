@@ -6,7 +6,7 @@
   <%= "#{@user.name}, #{@user.email}" %>
 <% end %>
 <% content_for :box_footer do %>
-  <%= link_to 'Users list', users_path, class: 'btn btn-warning' if @user.admin? %>
+  <%= link_to 'Users list', users_path, class: 'btn btn-success' if @user.admin? %>
   <%= link_to 'Video queue', video_activations_path, class: 'btn btn-success' if @user.admin? %>
   <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-info' %>
   <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
