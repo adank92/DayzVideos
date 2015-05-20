@@ -62,6 +62,10 @@ class User < ActiveRecord::Base
     self.increment!(:trust_points, 10)
   end
 
+  def remove_video_points
+    self.decrement!(:trust_points, 10)
+  end
+
   def trusted?
     trust_points > 50
   end

@@ -8,7 +8,7 @@ class Video < ActiveRecord::Base
   validates :categories, presence: true
   
   before_create :fetch_youtube_info
-  before_create :check_trusted
+  after_create :check_trusted
 
   default_scope -> { order(uploaded_at: :desc) }
   scope :active, -> { where( videos: { active: true } ) }
@@ -37,7 +37,7 @@ class Video < ActiveRecord::Base
     end
 
     def check_trusted
-      self.active = true if user.trusted?
+      activate if user.trusted?
     end
 
     def self.filter_date(type)
