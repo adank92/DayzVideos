@@ -1,0 +1,2 @@
+module VideoActivationsHelper
+end

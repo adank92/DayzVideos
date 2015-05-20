@@ -8,11 +8,19 @@ class Video < ActiveRecord::Base
   validates :categories, presence: true
   
   before_create :fetch_youtube_info
+  after_create :check_trusted
 
   default_scope -> { order(uploaded_at: :desc) }
+  scope :active, -> { where( videos: { active: true } ) }
+  scope :inactive, -> { where( videos: { active: false } ) }
   scope :category, -> (category) { joins(:categories).where(categories: { name: category }) if category.present? }
   scope :date, -> (type) { filter_date(type) if type.present? }
   scope :duration, -> (duration) { filter_duration(duration) if duration.present? }
+
+  def activate
+    update_attribute(:active, true)
+    user.add_video_points
+  end
 
   protected
 
@@ -26,6 +34,10 @@ class Video < ActiveRecord::Base
     rescue Yt::Errors::RequestError => e
       errors[:base] << "There was an issue trying to connect to youtube"
       false
+    end
+
+    def check_trusted
+      activate if user.trusted?
     end
 
     def self.filter_date(type)

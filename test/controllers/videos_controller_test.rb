@@ -105,6 +105,7 @@ class VideosControllerTest < ActionController::TestCase
     assert_difference('Video.count', -1) do
       delete :destroy, id: @video
     end
+    assert_equal @user.reload.trust_points, -10
     assert_redirected_to videos_path
   end
 end

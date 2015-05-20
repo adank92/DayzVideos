@@ -58,6 +58,18 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
+  def add_video_points
+    self.increment!(:trust_points, 10)
+  end
+
+  def remove_video_points
+    self.decrement!(:trust_points, 10)
+  end
+
+  def trusted?
+    trust_points > 50
+  end
+
   private
 
     def downcase_email

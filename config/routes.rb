@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   # full resources
   resources :videos
+  resources :video_activations, only: [:index, :edit]
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets, except: [:destroy]
-  
-  # login - logout resources
+    # login - logout resources
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
