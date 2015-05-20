@@ -28,5 +28,11 @@ class VideosActivationTest < ActionDispatch::IntegrationTest
     assert_not flash['success'].empty?
     assert video.active?
     assert_equal video.user.trust_points, 70
+    # delete video
+    assert_difference('Video.count', -1) do      
+      delete video_path(videos(:one))
+    end
+    assert_redirected_to video_activations_path
+    assert_not flash[:success].empty?
   end
 end

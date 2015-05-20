@@ -71,8 +71,9 @@ class VideosController < ApplicationController
   def destroy
     @video.user.remove_video_points
     @video.destroy
+    flash[:success] = 'Video was deleted'
     respond_to do |format|
-      format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
+      format.html { redirect_to video_activations_path }
       format.json { head :no_content }
     end
   end
