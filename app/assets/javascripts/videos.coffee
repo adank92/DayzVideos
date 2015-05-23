@@ -2,7 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 ready = ->
+  # show alerts 
   $("#alerts").fadeIn()
+  # hide spinner and overlay
+  $('#overlay').hide()
+
   # side-nav functionality
   $('.side-nav ul a').click (e) ->
     e.preventDefault
@@ -39,6 +43,12 @@ ready = ->
       });
   wall.fitWidth()
   $(window).trigger("resize")
+
+# spinner and overlay triggers
+$(document).on 'submit', 'form', ->
+  $('#overlay').fadeIn(500)
+$(document).ajaxStop ->
+  $('#overlay').fadeOut(500)
 
 # execute jquery with turbolinks and regular requests
 $(document).ready ready

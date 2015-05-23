@@ -7,6 +7,7 @@
 
 .video {
   width: 330px;
+
 }
 
 .thumbnail {
@@ -15,6 +16,7 @@
   height: 250px;
   margin-left: auto;
   margin-right: auto;
+  margin-right: 8px;
   img {
     width: 100%;
   }
@@ -26,7 +28,6 @@
 }
 
 .meta {
-  position: absolute;
   bottom: 0px;
   width: 320px;
   .uploader {
