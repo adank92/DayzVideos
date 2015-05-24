@@ -1,3 +1,2 @@
-<% view = (@videos.any?) ? @videos : 'no_videos' %>
-$('#videos-container').html("<%=j render view %>");
+$('#videos-container').html("<%=j render @partial %>");
 $(window).trigger("resize");

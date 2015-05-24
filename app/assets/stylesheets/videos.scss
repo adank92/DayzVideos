@@ -40,3 +40,19 @@
     font-size: 13px;
   }
 }
+
+#no-videos {
+  width: 602px;
+  height: 100px;
+  margin-top: 150px;
+  background-color: rgba(0, 0, 0, 0.69);
+  padding: 8px;
+  -webkit-border-radius: 20px 20px 20px 20px;
+  border-radius: 20px 20px 20px 20px;
+  -webkit-box-shadow: 0 0 50px 1px #000000;
+  box-shadow: 0 0 50px 1px #000000;
+  h1 {
+    text-align: center;
+    color: white;
+  }
+}
