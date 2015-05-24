@@ -13,7 +13,9 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       format.html { render layout: 'videos_sidebar' }
-      format.js
+      format.js do
+        @partial = @videos.any? ? @videos : 'no_videos'
+      end
     end
   end
 
