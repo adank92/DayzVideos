@@ -1,2 +1,7 @@
-$('#videos-container').html("<%=j render @partial %>");
+$('#videos-container').<%= params[:page].present? ? 'append' : 'html' %>("<%=j render @partial %>");
 $(window).trigger("resize");
+<% if @videos.next_page %>
+  $('#infinite-scrolling').html('<%=j will_paginate @videos %>')
+<% else %>
+  $('.pagination').remove()
+<% end %>

@@ -51,5 +51,5 @@ $(document).ajaxStop ->
   $('#overlay').fadeOut(500)
 
 # execute jquery with turbolinks and regular requests
-$(document).ready ready
+jQuery ready
 $(document).on 'page:load', ready
