@@ -10,6 +10,7 @@ class VideosController < ApplicationController
                    .category(params[:cat])
                    .date(params[:date])
                    .duration(params[:duration])
+                   .paginate(page: params[:page], per_page: 20)
 
     respond_to do |format|
       format.html { render layout: 'videos_sidebar' }
