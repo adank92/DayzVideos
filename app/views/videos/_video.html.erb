@@ -12,10 +12,11 @@
     </div>
     <div class="pull-right">
       <div class="vote-count center-block">
-        <%= video.votes.count %>
+        <%= video.votes.size %>
       </div>
       <div class="vote-btn text-center">
-        <%= link_to '', vote_video_path(video), method: :put, class: 'fa fa-thumbs-up disabled' %>
+        <% voted_flag = user_voted_for?(video) ? 'disabled' : '' %>
+        <%= link_to '', vote_video_path(video), method: :put, class: "btn fa fa-thumbs-up #{voted_flag}" %>
       </div>
     </div>
   </div>

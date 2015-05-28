@@ -6,7 +6,8 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.active
+    @videos = Video.includes(:votes)
+                   .active
                    .category(params[:cat])
                    .date(params[:date])
                    .duration(params[:duration])
@@ -82,7 +83,7 @@ class VideosController < ApplicationController
   end
 
   def vote
-    @video.vote_by current_user
+    @video.vote_by current_user unless current_user.voted_for? @video
     redirect_to root_path
   end
 
