@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy, :activate]
-  before_action :set_video, only: [:show, :edit, :update, :destroy, :activate]
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy, :activate, :vote]
+  before_action :set_video, only: [:show, :edit, :update, :destroy, :activate, :vote]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /videos
@@ -11,7 +11,7 @@ class VideosController < ApplicationController
                    .date(params[:date])
                    .duration(params[:duration])
                    .paginate(page: params[:page], per_page: 20)
-
+    sleep(5.seconds)
     respond_to do |format|
       format.html { render layout: 'videos_sidebar' }
       format.js do
@@ -79,6 +79,11 @@ class VideosController < ApplicationController
       format.html { redirect_to video_activations_path }
       format.json { head :no_content }
     end
+  end
+
+  def vote
+    @video.vote_by current_user
+    redirect_to root_path
   end
 
   private

@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root 'videos#index'
 
   # full resources
-  resources :videos
+  resources :videos do
+    member do
+      put 'vote'
+    end
+  end
   resources :video_activations, only: [:index, :edit]
   resources :users
   resources :account_activations, only: [:edit]

@@ -23,6 +23,10 @@ class Video < ActiveRecord::Base
     user.add_video_points
   end
 
+  def vote_by(user)
+    votes.create(user: user)
+  end
+
   protected
 
     def fetch_youtube_info

@@ -29,15 +29,31 @@
 
 .meta {
   bottom: 0px;
-  width: 320px;
+  width: 100%;
   .uploader {
     font-size: 13px;
     color: cadetblue;
   }
-  
   .time {
     color: #AAA;
     font-size: 13px;
+  }
+  .pull-left{
+    width: 80%;
+  }
+  .pull-right{
+    width: 20%;
+    margin-top: 4px;
+    .vote-count {
+      background-color: #f7f7f9;
+      border: 1px solid #e1e1e8;
+      border-radius: 4px;
+      text-align: center;
+      width: 55px;
+    }
+    .vote-btn {
+      font-size: 29px;
+    }
   }
 }
 

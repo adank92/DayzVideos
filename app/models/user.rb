@@ -71,6 +71,10 @@ class User < ActiveRecord::Base
     trust_points > 50
   end
 
+  def voted_for?(video)
+    votes.select{ |v| v.video_id == video.id }.any?
+  end
+
   private
 
     def downcase_email
