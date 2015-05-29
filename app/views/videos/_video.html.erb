@@ -1,6 +1,9 @@
 <div class="video thumbnail">
   <a href='#' data-toggle="modal" data-target="#videoModal" data-youtube-url="<%= youtube_url(video.youtube_id) %>">
     <%= image_tag video.img %>
+    <div class="image-shadow">
+      <span class="duration"><i class="fa fa-clock-o"></i> <%= clock_time video.duration %></span>
+    </div>
   </a>
   <div class="meta">
     <div class="pull-left">
