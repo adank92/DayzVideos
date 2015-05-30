@@ -1,12 +1,13 @@
 class VideosController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy, :activate]
-  before_action :set_video, only: [:show, :edit, :update, :destroy, :activate]
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy, :activate, :vote]
+  before_action :set_video, only: [:show, :edit, :update, :destroy, :activate, :vote]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.active
+    @videos = Video.includes(:votes)
+                   .active
                    .category(params[:cat])
                    .date(params[:date])
                    .duration(params[:duration])
@@ -79,6 +80,11 @@ class VideosController < ApplicationController
       format.html { redirect_to video_activations_path }
       format.json { head :no_content }
     end
+  end
+
+  def vote
+    @video.vote_by current_user unless current_user.voted_for? @video
+    redirect_to root_path
   end
 
   private

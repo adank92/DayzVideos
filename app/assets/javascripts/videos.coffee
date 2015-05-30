@@ -35,7 +35,7 @@ ready = ->
   wall = new freewall('#videos-container')
   wall.reset({
         selector: '.video',
-        animate: true,
+        animate: false,
         cellW: 332,
         cellH: 260,
         onResize: ->

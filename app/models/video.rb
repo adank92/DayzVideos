@@ -1,6 +1,7 @@
 class Video < ActiveRecord::Base
   belongs_to :user
   has_many :video_categories
+  has_many :votes
   has_many :categories, through: :video_categories
 
   validates :youtube_id, presence: true, uniqueness: :true
@@ -20,6 +21,10 @@ class Video < ActiveRecord::Base
   def activate
     update_attribute(:active, true)
     user.add_video_points
+  end
+
+  def vote_by(user)
+    votes.create(user: user)
   end
 
   protected

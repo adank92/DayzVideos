@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518211538) do
+ActiveRecord::Schema.define(version: 20150527174706) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -59,6 +59,13 @@ ActiveRecord::Schema.define(version: 20150518211538) do
     t.string   "youtube_uploader"
     t.datetime "uploaded_at"
     t.boolean  "active",           default: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

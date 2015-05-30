@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :reset_token
   has_many :videos
+  has_many :votes
   before_save :downcase_email
   before_create :create_activation_token
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -68,6 +69,10 @@ class User < ActiveRecord::Base
 
   def trusted?
     trust_points > 50
+  end
+
+  def voted_for?(video)
+    votes.select{ |v| v.video_id == video.id }.any?
   end
 
   private
