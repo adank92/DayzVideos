@@ -1,6 +1,6 @@
 class Video < ActiveRecord::Base
   belongs_to :user
-  has_many :video_categories
+  has_many :video_categories, dependent: :destroy
   has_many :votes
   has_many :categories, through: :video_categories
 
