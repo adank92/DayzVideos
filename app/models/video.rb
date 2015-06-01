@@ -1,6 +1,6 @@
 class Video < ActiveRecord::Base
   belongs_to :user
-  has_many :video_categories
+  has_many :video_categories, dependent: :destroy
   has_many :votes
   has_many :categories, through: :video_categories
 
@@ -25,6 +25,11 @@ class Video < ActiveRecord::Base
 
   def vote_by(user)
     votes.create(user: user)
+  end
+
+  def short_title
+    return title unless title.size > 48
+    title.sub title[48..-1], '...'
   end
 
   protected

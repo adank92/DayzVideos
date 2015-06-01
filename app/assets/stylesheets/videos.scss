@@ -39,6 +39,7 @@
 }
 
 .meta {
+  margin-top: 2px;
   bottom: 0px;
   width: 100%;
   .uploader {
@@ -53,6 +54,7 @@
     width: 80%;
   }
   .pull-right{
+    margin-top: 4px;
     width: 20%;
     margin-top: 4px;
     .vote-count {
@@ -61,7 +63,6 @@
       border-radius: 4px;
       text-align: center;
       width: 55px;
-      margin-top: 5px;
     }
     .vote-btn {
       font-size: 23px;

@@ -1,5 +1,16 @@
 /* mixins, variables, etc. */
 
+@font-face {
+  font-family: '28dayslater';
+  src:font-url('28dayslater.eot');
+  src:font-url('28dayslater?#iefix') format('embedded-opentype'),
+    font-url('28dayslater#icomoon') format('svg'),
+    font-url('28dayslater.woff') format('woff'),
+    font-url('28dayslater.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 $error_color: red;
 
 @mixin box_sizing {
@@ -11,12 +22,17 @@ $error_color: red;
 /* content & background */
 
 body {
-  background: url('/assets/w1.jpg') no-repeat center center fixed;
+  background: image-url('w1.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-color:#333;
+}
+
+.navbar-brand {
+  font-family: '28dayslater';
+  font-size: 27px
 }
 
 #wrapper {
