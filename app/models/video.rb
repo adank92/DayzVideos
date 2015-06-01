@@ -27,11 +27,6 @@ class Video < ActiveRecord::Base
     votes.create(user: user)
   end
 
-  def short_title
-    return title unless title.size > 48
-    title.sub title[48..-1], '...'
-  end
-
   protected
 
     def fetch_youtube_info
