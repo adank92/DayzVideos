@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527174706) do
+ActiveRecord::Schema.define(version: 20150603154133) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150527174706) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.integer  "trust_points",      default: 0
+    t.integer  "votes_count",       default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 20150527174706) do
     t.string   "youtube_uploader"
     t.datetime "uploaded_at"
     t.boolean  "active",           default: false
+    t.integer  "votes_count",      default: 0
   end
 
   create_table "votes", force: :cascade do |t|

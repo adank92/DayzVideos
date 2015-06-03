@@ -1,8 +1,8 @@
 class Video < ActiveRecord::Base
   belongs_to :user
   has_many :video_categories, dependent: :destroy
-  has_many :votes
   has_many :categories, through: :video_categories
+  has_many :votes
 
   validates :youtube_id, presence: true, uniqueness: :true
   validates :user, presence: true
@@ -11,12 +11,12 @@ class Video < ActiveRecord::Base
   before_create :fetch_youtube_info
   after_create :check_trusted
 
-  default_scope -> { order(uploaded_at: :desc) }
   scope :active, -> { where( videos: { active: true } ) }
   scope :inactive, -> { where( videos: { active: false } ) }
   scope :category, -> (category) { joins(:categories).where(categories: { name: category }) if category.present? }
   scope :date, -> (type) { filter_date(type) if type.present? }
   scope :duration, -> (duration) { filter_duration(duration) if duration.present? }
+  scope :order_by, -> (order_value) { filter_order_by(order_value) }
 
   def activate
     update_attribute(:active, true)
@@ -69,5 +69,15 @@ class Video < ActiveRecord::Base
           ['videos.duration > ?', 600]
         end
       where(*query)
+    end
+
+    def self.filter_order_by(value)
+      column = case value
+        when 'votes'
+          :votes_count
+        else
+          :uploaded_at
+        end
+        order(column => :desc)
     end
 end
