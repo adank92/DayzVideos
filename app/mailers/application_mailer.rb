@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "noreply@dayzvideos.com"
+  default from: "admin@dayzvideos.com"
   layout 'mailer'
 end
