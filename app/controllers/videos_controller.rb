@@ -11,6 +11,7 @@ class VideosController < ApplicationController
                    .category(params[:cat])
                    .date(params[:date])
                    .duration(params[:duration])
+                   .order_by(params[:order_by])
                    .paginate(page: params[:page], per_page: 20)
 
     respond_to do |format|

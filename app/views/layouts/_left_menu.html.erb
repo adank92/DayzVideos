@@ -72,18 +72,15 @@
       </ul>
     </li>
     <li>
-      <a href="javascript:;" data-toggle="collapse" data-target="#sort-by">
+      <a href="javascript:;" data-toggle="collapse" data-target="#order_by">
         <i class="fa fa-fw fa-sort"></i> Sort By<i class="fa fa-fw fa-angle-left"></i>
       </a>
-      <ul id="sort-by" class="collapse">
+      <ul id="order_by" class="collapse">
         <li class="active">
-          <%= link_to 'Date', '#', val: 'Date' %>
+          <%= link_to 'Date', '#', val: 'date' %>
         </li>
         <li>
-          <%= link_to 'Votes', '#', val: 'Votes' %>
-        </li>
-        <li>
-          <%= link_to 'Views', '#', val: 'Views' %>
+          <%= link_to 'Votes', '#', val: 'votes' %>
         </li>
       </ul>
     </li>
@@ -92,7 +89,7 @@
       <input type="hidden" name="cat" value="<%= params[:cat] %>">
       <input type="hidden" name="date" value="<%= params[:date] %>">
       <input type="hidden" name="duration" value="<%= params[:duration] %>">
-      <input type="hidden" name="sort-by" value="<%= params[:sort_by] %>">
+      <input type="hidden" name="order_by" value="<%= params[:order_by] %>">
     <% end %>
 
   </ul>
