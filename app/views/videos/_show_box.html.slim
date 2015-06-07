@@ -1,0 +1,21 @@
+- content_for :box_title do
+  = content_tag 'i', ' Video info', class: 'fa fa-youtube'
+
+- content_for :box_body do
+  p
+    strong Title: 
+    = @video.title
+  p
+    strong Youtube Id: 
+    = @video.youtube_id
+  p
+    strong Categories: 
+    = @video.categories.map(&:name).join(', ')
+  p
+    strong.text-info
+      = "An admin will review this video and activate it" unless @video.active?
+
+- content_for :box_footer do
+  = link_to 'Back', root_path, class: 'btn btn-primary'
+
+= render 'shared/content_box'

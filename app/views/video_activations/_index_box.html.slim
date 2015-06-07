@@ -1,0 +1,13 @@
+- content_for :box_title do
+  | Inactive Videos
+
+- content_for :box_body do
+  = will_paginate @videos, class: 'text-center'
+  ul.list
+    = render partial: 'video', collection: @videos
+  = will_paginate @videos, class: 'text-center'
+
+- content_for :box_footer do
+  = link_to 'Back', user_path(current_user), class: 'btn btn-primary'
+
+= render 'shared/content_box'

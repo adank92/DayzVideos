@@ -1,0 +1,6 @@
+- content_for :sidebar do render 'layouts/left_menu' end
+- content_for :content do
+  #videos-wrapper
+    = yield
+
+= render template: 'layouts/application'

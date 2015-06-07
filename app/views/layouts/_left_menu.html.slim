@@ -1,0 +1,72 @@
+/ Sidebar Menu Items - These collapse to the responsive navigation menu on small screens
+.collapse.navbar-collapse.navbar-ex1-collapse
+  ul.nav.navbar-nav.side-nav.side-scrollable
+    li
+      = link_to login_path_or(new_video_path), remote: true, :'data-toggle' => 'modal',
+                                                             :'data-target' => '#modal-window',
+                                                             class: 'btn-success highlight-li' do
+        span.highlight-li
+          i.fa.fa-fw.fa-plus-circle
+          |  Submit a video
+
+    li
+      a data-target="#cat" data-toggle="collapse" href="javascript:;" 
+        i.fa.fa-fw.fa-tags
+        |  Categories
+        i.fa.fa-fw.fa-angle-left
+      ul#cat.collapse
+        li.active
+          = link_to 'All', '#', val: ''
+        li
+          = link_to 'Gunfights', '#', val: 'Gunfights'
+        li
+          = link_to 'Roleplay', '#', val: 'Roleplay'
+        li
+          = link_to 'Funny', '#', val: 'Funny'
+        li
+          = link_to 'Showcase', '#', val: 'Showcase'
+    li
+      a data-target="#date" data-toggle="collapse" href="javascript:;" 
+        i.fa.fa-fw.fa-calendar
+        |  Date
+        i.fa.fa-fw.fa-angle-left
+      ul#date.collapse
+        li.active
+          = link_to 'All', '#', val: ''
+        li
+          = link_to 'Today', '#', val: 'Today'
+        li
+          = link_to 'Week', '#', val: 'Week'
+        li
+          = link_to 'Month', '#', val: 'Month'
+        li
+          = link_to 'Year', '#', val: 'Year'
+    li
+      a data-target="#duration" data-toggle="collapse" href="javascript:;" 
+        i.fa.fa-fw.fa-clock-o
+        |  Duration
+        i.fa.fa-fw.fa-angle-left
+      ul#duration.collapse
+        li.active
+          = link_to 'All', '#', val: ''
+        li
+          = link_to 'Short (< 4 min)', '#', val: 'Short'
+        li
+          = link_to 'Medium (> 4 min < 8 min)', '#', val: 'Medium'
+        li
+          = link_to 'Long (> 10 min)', '#', val: 'Long'
+    li
+      a data-target="#order_by" data-toggle="collapse" href="javascript:;" 
+        i.fa.fa-fw.fa-sort
+        |  Sort By
+        i.fa.fa-fw.fa-angle-left
+      ul#order_by.collapse
+        li.active
+          = link_to 'Date', '#', val: 'date'
+        li
+          = link_to 'Votes', '#', val: 'votes'
+    = form_tag('/', method: :get, remote: true) do
+      input name="cat" type="hidden" value=params[:cat] /
+      input name="date" type="hidden" value=params[:date] /
+      input name="duration" type="hidden" value=params[:duration] /
+      input name="order_by" type="hidden" value=params[:order_by] /

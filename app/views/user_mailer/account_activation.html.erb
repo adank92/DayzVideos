@@ -1,7 +1,0 @@
-<h1>DayZVideos</h1>
-
-<p>Greetings Survivor <%= @user.name %>,</p>
-
-<p>Welcome to DayZVideos! Click on the link below to activate your account:</p>
-
-<%= link_to 'Activate account!', edit_account_activation_url(@user.activation_token, email: @user.email) %>

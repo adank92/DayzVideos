@@ -1,9 +1,0 @@
-<% content_for :box_title do %>
-  <%= content_tag 'i', 'Log In', class: 'fa fa-user' %>
-<% end %>
-<% content_for :box_footer do %>
-  <%= content_tag 'span' do %>
-  New user? <%= link_to 'Sign up now!', new_user_path, remote: is_a_modal? %>
-  <% end %>
-<% end %>
-<%= render 'shared/content_box' %>

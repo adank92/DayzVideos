@@ -1,0 +1,5 @@
+= form_for(:password_reset, url: password_resets_path, html: { class: 'form-horizontal' }) do |f|
+  = f.label :email, class: 'label-control'
+  = f.text_field :email, class: 'form-control'
+  
+  = f.submit 'Send reset email', class: 'btn btn-primary'

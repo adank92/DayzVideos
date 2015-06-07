@@ -1,0 +1,7 @@
+- content_for :box_title do
+  | Edit Profile
+
+- content_for :box_footer do
+  = link_to 'Back', user_path(@user), class: 'btn btn-primary'
+
+= render 'shared/content_box'
