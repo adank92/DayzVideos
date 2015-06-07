@@ -1,2 +1,3 @@
 machine:
-  ruby: 2.1.5p273
+  ruby: 
+    version: 2.1.5p273
