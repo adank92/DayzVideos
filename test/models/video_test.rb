@@ -29,20 +29,16 @@ class VideoTest < ActiveSupport::TestCase
     assert_not @video.valid?
   end
 
-  test "should order by :uploaded_at" do
-    assert_equal Video.all, [videos(:three), videos(:one), videos(:two)]
-  end
-
   test "should filter by categories" do
     assert_equal Video.category(:gunfights), [videos(:three)]
-    assert_equal Video.category(:roleplay), [videos(:one), videos(:two)]
+    assert_equal Video.category(:roleplay), [videos(:two), videos(:one)]
   end
 
   test "should filter by date" do
     assert_equal Video.date('Today'), [videos(:three)]
     assert_equal Video.date('Week'), [videos(:three), videos(:one)]
     assert_equal Video.date('Month'), [videos(:three), videos(:one)]
-    assert_equal Video.date('Year'), [videos(:three), videos(:one), videos(:two)]
+    assert_equal Video.date('Year'), [videos(:three), videos(:two), videos(:one)]
   end
 
   test "should filter by duration" do

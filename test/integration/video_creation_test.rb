@@ -42,9 +42,6 @@ class VideoCreationTest < ActionDispatch::IntegrationTest
     assert_difference 'Video.count', 1  do
       post videos_path, video: { youtube_id: youtube_id_2, category_ids: [@categories.first.id]}
     end
-    # should be shown in index
-    get root_path
-    assert_select 'a[data-youtube-url=?]', "http://www.youtube.com/v/#{youtube_id_2}"
   end
 
   test "video update" do
