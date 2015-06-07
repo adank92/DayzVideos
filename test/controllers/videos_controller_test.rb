@@ -106,6 +106,6 @@ class VideosControllerTest < ActionController::TestCase
       delete :destroy, id: @video
     end
     assert_equal @user.reload.trust_points, -10
-    assert_redirected_to videos_path
+    assert_redirected_to video_activations_path
   end
 end
