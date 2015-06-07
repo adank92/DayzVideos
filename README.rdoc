@@ -1,4 +1,0 @@
-== DayZVideos
-
-If you are like me you love watching DayZ videos, but the problem is that we don't have a way to filter them based on categories, duration, views, votes, etc.
-DayZVideos comes to solve this problem, enabling visitors to filter videos and users to submit new videos to the app
