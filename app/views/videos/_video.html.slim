@@ -1,0 +1,21 @@
+.video.thumbnail
+  a data-target="#videoModal" data-toggle="modal" data-youtube-url=youtube_url(video.youtube_id) href="#"
+    = image_tag video.img
+    .image-shadow
+      span.duration
+        i.fa.fa-clock-o
+        = clock_time video.duration
+  .meta
+    .pull-left
+      .title
+        = video.title
+      span.uploader
+        = video.youtube_uploader
+      span.time 
+        = distance_of_time_in_words_to_now(video.uploaded_at) + ' ago'
+    .pull-right
+      .vote-count.center-block
+        = video.votes.size
+      .vote-btn.text-center
+        - voted_flag = user_voted_for?(video) ? 'disabled' : ''
+        = link_to '', vote_video_path(video), method: :put, class: "btn fa fa-thumbs-up #{voted_flag}"

@@ -1,0 +1,13 @@
+#videos-container
+  = render @videos
+
+#infinite-scrolling.text-center
+  = will_paginate
+
+/ video modal
+#videoModal.modal.fade aria-hidden="true" aria-labelledby="videoModalLabel" role="dialog" tabindex="-1" 
+  .modal-dialog.modal-lg
+    .modal-content.embed-responsive.embed-responsive-16by9
+      iframe.embed-responsive-item [allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" 
+      msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" 
+      webkitallowfullscreen="webkitallowfullscreen"]

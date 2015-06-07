@@ -1,0 +1,16 @@
+.modal-content
+  .modal-header
+    button.close [aria-label="Close" data-dismiss="modal" 
+      style="display: #{content_for?(:close_button_display) ? yield(:close_button_display) : 'block'};"
+       type="button"]
+      span aria-hidden="true"  &times;
+    h1#myModalLabel.modal-title.text-center
+      = yield :box_title
+  .modal-body
+    - if content_for?(:box_body)
+      = yield(:box_body)
+    - else
+      = render 'form'
+
+  .modal-footer
+    = yield :box_footer

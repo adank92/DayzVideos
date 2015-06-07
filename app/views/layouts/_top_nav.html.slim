@@ -1,0 +1,35 @@
+/ Brand and toggle get grouped for better mobile display
+.navbar-header
+  button.navbar-toggle data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button" 
+    span.sr-only Toggle navigation
+    span.icon-bar
+    span.icon-bar
+    span.icon-bar
+  = link_to 'DayZVideos', root_path, class: 'navbar-brand'
+/ Top Menu Items
+ul.nav.navbar-right.top-nav
+  - if logged_in?
+    li.dropdown
+      a.dropdown-toggle data-toggle="dropdown" href="#" 
+        i.fa.fa-user
+        =< current_user.name
+        b.caret
+      ul.dropdown-menu
+        li
+          = link_to current_user do
+            i.fa.fa-fw.fa-user
+            |  Profile
+        li.divider
+        li
+          = link_to logout_path, method: :delete do
+            i.fa.fa-fw.fa-power-off
+            |  Log Out
+  - else
+    li
+      = link_to login_path, remote: true, :'data-toggle' => 'modal', :'data-target' => '#modal-window' do
+        i.fa.fa-sign-in
+        |  Log In
+
+/ navigation modal
+#modal-window.modal.fade aria-hidden="true" aria-labelledby="myModalLabel2" role="dialog" tabindex="-1" 
+  .modal-dialog
